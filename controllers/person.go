@@ -3,14 +3,15 @@ package controllers
 import (
 	"net/http"
 
-	"rest-api/structs"
+	"rest-api/models"
 
 	"github.com/gin-gonic/gin"
 )
 
+
 func (db_conn *Database) GetPerson(c *gin.Context) {
 	var (
-		person structs.Person
+		person models.Person
 		result gin.H
 	)
 	id := c.Param("id")
@@ -32,7 +33,7 @@ func (db_conn *Database) GetPerson(c *gin.Context) {
 
 func (db_conn *Database) GetPersons(c *gin.Context) {
 	var (
-		persons []structs.Person
+		persons []models.Person
 		result  gin.H
 	)
 
@@ -54,7 +55,7 @@ func (db_conn *Database) GetPersons(c *gin.Context) {
 
 func (db_conn *Database) CreatePerson(c *gin.Context) {
 	var (
-		person structs.Person
+		person models.Person
 		result gin.H
 	)
 	first_name := c.PostForm("first_name")
@@ -73,8 +74,8 @@ func (db_conn *Database) UpdatePerson(c *gin.Context) {
 	first_name := c.PostForm("first_name")
 	last_name := c.PostForm("last_name")
 	var (
-		person    structs.Person
-		newPerson structs.Person
+		person    models.Person
+		newPerson models.Person
 		result    gin.H
 	)
 
@@ -101,7 +102,7 @@ func (db_conn *Database) UpdatePerson(c *gin.Context) {
 
 func (db_conn *Database) DeletePerson(c *gin.Context) {
 	var (
-		person structs.Person
+		person models.Person
 		result gin.H
 	)
 	id := c.Param("id")

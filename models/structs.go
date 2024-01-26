@@ -1,12 +1,12 @@
-package structs
+package models
 
 import "github.com/jinzhu/gorm"
 
 type Album struct {
 	gorm.Model
-    Title  string  `json:"title"`
-    Artist string  `json:"artist"`
-    Price  float64 `json:"price"`
+	Title  string  `json:"title"`
+	Artist string  `json:"artist"`
+	Price  float64 `json:"price"`
 }
 
 type Person struct {
@@ -15,7 +15,8 @@ type Person struct {
 	Last_Name  string
 }
 
-type Credential struct {
+type User struct {
+	gorm.Model
 	Username string `json:"username"`
 	Password string `json:"password"`
 }

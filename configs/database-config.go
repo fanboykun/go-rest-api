@@ -1,7 +1,7 @@
 package configs
 
 import (
-	"rest-api/structs"
+	"rest-api/models"
 
 	"github.com/jinzhu/gorm"
 )
@@ -13,7 +13,8 @@ func DBConnect() *gorm.DB {
 		panic("failed to connect to database")
 	}
 
-	db.AutoMigrate(structs.Album{})
-	db.AutoMigrate(structs.Person{})
+	db.AutoMigrate(models.User{})
+	db.AutoMigrate(models.Album{})
+	db.AutoMigrate(models.Person{})
 	return db
 }
